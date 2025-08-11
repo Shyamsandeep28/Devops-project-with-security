@@ -1,10 +1,5 @@
-FROM openjdk:17-jdk-slim
-copy target/devops.war webapps/
+FROM tomcat:9.0-jdk17
+WORKDIR /usr/local/tomcat/webapps/
+COPY target/devops.war devops.war
 
-# Create and switch to non-root user
-RUN useradd -m appuser
-USER appuser
-
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar","devops.war"]
 
