@@ -1,6 +1,59 @@
-Welcome to the DevOps test repository for Maven projects
+Welcome to the DevOps-security test repository for Maven projects
 
 ************************************************************
+
+# DevOps CI/CD Pipeline with Security Scans
+
+This project demonstrates a complete **Jenkins pipeline** that:
+1. Checks out source code from GitHub
+2. Scans source code for vulnerabilities using **Trivy**
+3. Builds the application using **Maven**
+4. Runs **SonarQube** code analysis
+5. Builds a Docker image
+6. Scans the Docker image with **Trivy**
+7. Runs the application container (and keeps it running)
+
+---
+
+## 🚀 Prerequisites
+
+Ensure the following are installed on the Jenkins server:
+
+- **Jenkins** (with pipeline plugin)
+- **Git**
+- **Docker** (with non-root access for Jenkins user)
+- **Maven**
+- **Trivy** (for vulnerability scanning)
+- **SonarQube** server (running and accessible)
+- **Java 11+** (for Maven build)
+
+---
+
+## ⚙️ Jenkins Setup
+
+### 1. Install Required Plugins
+- **Pipeline**
+- **Git**
+- **SonarQube Scanner for Jenkins**
+- **Docker Pipeline**
+
+### 2. Configure SonarQube in Jenkins
+1. Go to **Manage Jenkins → Configure System**
+2. Search for **SonarQube servers**
+3. Add:
+   - **Name:** `SonarQube`
+   - **Server URL:** `http://<SonarQube-IP>:9000`
+   - **Authentication Token:** (Generated in SonarQube)
+
+---
+
+## 📂 Project Structure
+.
+├── Jenkinsfile
+├── README.md
+├── pom.xml
+├── Dockerfile
+└── src/
 
 
 
